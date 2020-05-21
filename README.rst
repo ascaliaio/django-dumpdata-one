@@ -1,3 +1,6 @@
+.. image:: https://travis-ci.org/ascaliaio/django-dumpdata-one.svg?branch=master
+    :target: https://travis-ci.org/github/ascaliaio/django-dumpdata-one/
+
 Django Dumpdata One
 ===================
 
