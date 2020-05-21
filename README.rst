@@ -23,7 +23,7 @@ Add ``dumpdata_one`` to your ``INSTALLED_APPS``
 
     INSTALLED_APPS = (
         ...,
-        "dumpdata_one",
+        "django_dumpdata_one",
     )
 
 Usage
