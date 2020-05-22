@@ -7,7 +7,7 @@
 Django Dumpdata One
 ===================
 
-Custom ``dumpdata`` command which allow to exporting from given fields of a model
+Custom ``dumpdata`` command which allows to exporting from given fields of a model
 and filter that data using standard Django lookups for filtering.
 
 The exported data structure is compatible with Django ``dumpdata`` structure which
