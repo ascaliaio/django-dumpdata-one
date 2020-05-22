@@ -14,7 +14,7 @@ The exported data structure is compatible with Django ``dumpdata`` structure whi
 allows you to use standard ``loaddata`` command for import.
 
 Installation
------------
+------------
 
 To get the latest stable release from PyPi
 

@@ -22,7 +22,10 @@ class Command(BaseCommand):
 
         Model = apps.get_model(app_model)
 
-        fields = fields.split(',') if fields is not None else ['pk']
+        fields = fields.split(',') if fields is not None else []
+
+        if 'pk' not in fields:
+            fields.append('pk')
 
         records = Model.objects.all()
         if filters:

@@ -9,6 +9,7 @@ setup(
     version="0.8",
     description="Django management command to export choosen data from one table",
     long_description=open(os.path.join(os.path.dirname(__file__), "README.rst")).read(),
+    long_description_content_type="text/x-rst",
     author="Stjepan Zlodi",
     author_email="stjepan@gmail.com",
     url="",
