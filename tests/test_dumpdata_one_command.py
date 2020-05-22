@@ -66,7 +66,7 @@ class DumpDataOneCallTests(TestCase):
         BATCH_SIZE = 100
         OneModelFactory.create_batch(size=BATCH_SIZE)
 
-        FILTER_STRING = 'pk__gt=0,decimal_value__gt=0'
+        FILTER_STRING = 'pk__gt=0,integer_value=1'
         FIELDS_STRING = 'pk,name,decimal_value'
 
         out = StringIO()
