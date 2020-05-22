@@ -1,7 +1,7 @@
-.. image:: https://travis-ci.org/ascaliaio/django-dumpdata-one.svg?branch=master&no-cache
+.. image:: https://travis-ci.org/ascaliaio/django-dumpdata-one.svg
     :target: https://travis-ci.org/github/ascaliaio/django-dumpdata-one/
 
-.. image:: https://codecov.io/gh/ascaliaio/django-dumpdata-one/branch/master/graph/badge.svg?no-cache
+.. image:: https://codecov.io/gh/ascaliaio/django-dumpdata-one/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/ascaliaio/django-dumpdata-one
 
 Django Dumpdata One
