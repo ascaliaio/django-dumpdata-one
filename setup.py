@@ -6,13 +6,13 @@ from setuptools import find_packages, setup
 setup(
     name="django-dumpdata-one",
     zip_safe=False,
-    version="0.8",
+    version="0.8.1",
     description="Django management command to export choosen data from one table",
     long_description=open(os.path.join(os.path.dirname(__file__), "README.rst")).read(),
     long_description_content_type="text/x-rst",
     author="Stjepan Zlodi",
     author_email="stjepan@gmail.com",
-    url="",
+    url="https://github.com/ascaliaio/django-dumpdata-one",
     package_dir={"": "src"},
     packages=find_packages("src"),
     classifiers=[

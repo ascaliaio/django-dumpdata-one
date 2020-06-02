@@ -57,3 +57,16 @@ lookups - https://docs.djangoproject.com/en/3.0/topics/db/queries/#field-lookups
     ./manage.py dumpdata_one app_name.model_name --fields=field1 --filter=name__icontains=django
 
     ./manage.py dumpdata_one app_name.model_name --fields=field1 --filter=name__icontains=django,pk__gt=300
+
+Set order by:
+
+.. code-block:: bash
+
+    ./manage.py dumpdata_one app_name.model_name --fields=field1,field2 --order=field2,field2
+
+Export all fields:
+
+.. code-block:: bash
+
+    ./manage.py dumpdate_one app_name.model_name --fields=*
+

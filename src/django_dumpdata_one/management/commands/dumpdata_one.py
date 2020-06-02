@@ -22,7 +22,10 @@ class Command(BaseCommand):
 
         Model = apps.get_model(app_model)
 
-        fields = fields.split(',') if fields is not None else []
+        if fields == '*':
+            fields = self.get_all_fields(Model)
+        else:
+            fields = fields.split(',') if fields is not None else []
 
         if 'pk' not in fields:
             fields.append('pk')
@@ -31,7 +34,9 @@ class Command(BaseCommand):
         if filters:
             records = records.filter(**filters)
 
-        records = records.order_by(order).values(*fields)
+        order_by = self.get_order_list(order)
+
+        records = records.order_by(*order_by).values(*fields)
 
         dump_structure = self.get_dump_structure(app_model, records)
         result = json.dumps(dump_structure, cls=DjangoJSONEncoder)
@@ -63,3 +68,9 @@ class Command(BaseCommand):
                 filters[key] = value
 
         return filters
+
+    def get_order_list(self, order):
+        return order.split(",")
+
+    def get_all_fields(self, Model):
+        return [field.name for field in Model._meta.fields]
