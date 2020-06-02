@@ -81,3 +81,18 @@ class DumpDataOneCallTests(TestCase):
         results = json.loads(out.getvalue())
 
         self.assertEqual(len(results), BATCH_SIZE)
+
+    def test_get_all_fields_method(self):
+        OneModelFactory()
+
+        out = StringIO()
+        call_command(
+            self.COMMAND,
+            self.APP_MODEL,
+            fields='*',
+            stdout=out
+        )
+
+        results = json.loads(out.getvalue())
+
+        self.assertEqual(len(results), 1)
