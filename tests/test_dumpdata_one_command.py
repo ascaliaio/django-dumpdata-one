@@ -96,3 +96,21 @@ class DumpDataOneCallTests(TestCase):
         results = json.loads(out.getvalue())
 
         self.assertEqual(len(results), 1)
+
+    def test_limit_argument(self):
+        BATCH_SIZE = 100
+        LIMIT = 50
+        OneModelFactory.create_batch(size=BATCH_SIZE)
+
+        out = StringIO()
+        call_command(
+            self.COMMAND,
+            self.APP_MODEL,
+            fields='*',
+            limit=LIMIT,
+            stdout=out
+        )
+
+        results = json.loads(out.getvalue())
+
+        self.assertEqual(len(results), LIMIT)

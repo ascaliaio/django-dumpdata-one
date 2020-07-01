@@ -70,3 +70,16 @@ Export all fields:
 
     ./manage.py dumpdate_one app_name.model_name --fields=*
 
+
+Limit number of exported records:
+
+.. code-block:: bash
+
+    ./manage.py dumpdata_one app_name.model_name --fields=* --limit=10
+
+
+Export full file URL:
+
+.. code-block:: bash
+
+    ./manage.py dumpdata_one app_name.model_name --fields=image --full_url=image

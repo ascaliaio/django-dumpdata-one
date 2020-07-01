@@ -13,3 +13,7 @@ class OneModelFactory(DjangoModelFactory):
 
     class Meta:
         model = OneModel
+
+
+class ModelWithFileFactory(OneModelFactory):
+    document = faker.file_path()

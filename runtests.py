@@ -58,6 +58,7 @@ SETTINGS_DICT = {
             },
         }
     ],
+    "MEDIA_URL": "https://media.example.com/"
 }
 
 
