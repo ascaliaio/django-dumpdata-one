@@ -8,3 +8,4 @@ class OneModel(models.Model):
     time_is = models.DateTimeField(auto_now_add=True)
     decimal_value = models.DecimalField(max_digits=5, decimal_places=2)
     integer_value = models.IntegerField(default=1)
+    document = models.FileField(blank=True, null=True)
