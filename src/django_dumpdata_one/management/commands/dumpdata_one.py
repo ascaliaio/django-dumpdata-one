@@ -1,6 +1,5 @@
 import json
 from django.apps import apps
-from django.core.files import File
 from django.core.management.base import BaseCommand
 from django.core.serializers.json import DjangoJSONEncoder
 
@@ -44,33 +43,34 @@ class Command(BaseCommand):
         order_by = self.get_order_list(order)
 
         records = records.order_by(*order_by)
+        records = records.values(*fields)
         if limit:
             records = records[:limit]
 
         dump_structure = self.get_dump_structure(
-            app_model, records, fields, full_urls
+            app_model, records, fields, full_urls, Model
         )
         result = json.dumps(dump_structure, cls=DjangoJSONEncoder)
         return result
 
-    def get_dump_structure(self, app_model, records, fields, full_urls):
+    def get_dump_structure(self, app_model, records, fields, full_urls, Model):
         results = []
         for item in records:
             values = {}
-            for field in fields:
-                if field != "pk":
-                    model_field = getattr(item, field)
-                    if isinstance(model_field, File):
-                        values[field] = model_field.name
-                    else:
-                        values[field] = model_field
+            for key, value in item.items():
+                if key != "pk":
+                    values[key] = value
 
-                if field in full_urls:
-                    values[f"{field}__full_url"] = getattr(item, field).url
+                if key in full_urls:
+                    # it's a hack, if you know how to do it smarter just say ;-)
+                    # problem is more complicated with custom storage providers
+                    hack = Model()
+                    setattr(hack, key, value)
+                    values[f"{key}__full_url"] = getattr(hack, key).url
 
             item_structure = {
                 "model": app_model,
-                "pk": getattr(item, "pk"),
+                "pk": item.get("pk"),
                 "fields": values
             }
             results.append(item_structure)
