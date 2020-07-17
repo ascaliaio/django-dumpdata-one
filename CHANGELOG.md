@@ -1,5 +1,10 @@
 # Change log
 
+## [0.8.3] - 2020-07-17
+### Fixed
+- roll back to .values method to retrieve field values
+- a simple hack to get file url
+
 ## [0.8.2] - 2020-07-01
 ### Added
 - dump full file/image url `--full_url={field_name},{other_file_name}`
