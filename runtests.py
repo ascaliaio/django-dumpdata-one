@@ -58,7 +58,8 @@ SETTINGS_DICT = {
             },
         }
     ],
-    "MEDIA_URL": "https://media.example.com/"
+    "MEDIA_URL": "https://media.example.com/",
+    "DEFAULT_AUTO_FIELD": "django.db.models.AutoField"
 }
 
 

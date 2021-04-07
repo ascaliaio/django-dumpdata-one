@@ -1,5 +1,8 @@
 # Change log
 
+## [0.8.4] - 2021-04-07
+- check and test for Django 3.2
+
 ## [0.8.3] - 2020-07-17
 ### Fixed
 - roll back to .values method to retrieve field values
