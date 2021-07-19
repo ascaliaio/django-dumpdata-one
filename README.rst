@@ -83,3 +83,10 @@ Export full file URL:
 .. code-block:: bash
 
     ./manage.py dumpdata_one app_name.model_name --fields=image --full_url=image
+
+
+Export from another database than 'default':
+
+.. code-block:: bash
+
+    ./manage.py dumpdata_one app_name.model_name --database=other_database
