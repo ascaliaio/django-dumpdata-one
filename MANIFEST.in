@@ -1,6 +1,7 @@
 include LICENSE
 include MANIFEST.in
 include AUTHORS
+include CONTRIBUTING.rst
 include tox.ini
 include runtests.py
 graft src
