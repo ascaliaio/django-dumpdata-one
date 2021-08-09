@@ -14,6 +14,7 @@ class Command(BaseCommand):
         parser.add_argument('--filter', type=str)
         parser.add_argument('--full_url', type=str)
         parser.add_argument('--limit', type=int)
+        parser.add_argument('--database', type=str)
 
     def handle(self, *args, **options):
 
@@ -23,6 +24,7 @@ class Command(BaseCommand):
         filters = self.get_filter_dict(options['filter'])
         full_urls = options['full_url']
         limit = options['limit']
+        database = options['database'] or 'default'
 
         Model = apps.get_model(app_model)
 
@@ -36,7 +38,7 @@ class Command(BaseCommand):
 
         full_urls = full_urls.split(',') if full_urls is not None else []
 
-        records = Model.objects.all()
+        records = Model.objects.using(database).all()
         if filters:
             records = records.filter(**filters)
 
