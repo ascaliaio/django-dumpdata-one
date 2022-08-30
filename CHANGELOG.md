@@ -1,5 +1,8 @@
 # Change log
 
+## [0.8.6] - 2022-08-30
+- check and test for Django 4.0, 4.1 and Python 3.10
+
 ## [0.8.5] - 2021-08-09
 - add --database argument (aadomenech)
 
